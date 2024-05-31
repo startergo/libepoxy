@@ -179,7 +179,7 @@ egl_dep = dependency('egl', required: false)
 if not egl_dep.found()
   egl_dep = cc.find_library('EGL', required: false)
 endif
-if not egl_dep.found() and host_machine == 'windows'
+if not egl_dep.found() and host_machine.system() =='windows'
   egl_dep = cc.find_library('libEGL.dll', required: false)
 endif
 if not egl_dep.found()
@@ -190,7 +190,7 @@ gles2_dep = dependency('glesv2', required: false)
 if not gles2_dep.found()
   gles2_dep = cc.find_library('GLESv2', required: false)
 endif
-if not gles2_dep.found() and host_machine == 'windows'
+if not gles2_dep.found() and host_machine.system() =='windows'
   gles2_dep = cc.find_library('libGLESv2.dll', required: false)
 endif
 if not gles2_dep.found()
@@ -201,7 +201,7 @@ gles1_dep = dependency('glesv1_cm', required: false)
 if not gles1_dep.found()
   gles1_dep = cc.find_library('GLESv1_CM', required: false)
 endif
-if not gles1_dep.found() and host_machine == 'windows'
+if not gles1_dep.found() and host_machine.system() =='windows'
   gles1_dep = cc.find_library('libGLESv1_CM.dll', required: false)
 endif
 
